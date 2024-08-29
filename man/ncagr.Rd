@@ -7,14 +7,13 @@
 ncagr(
   responses,
   covariates,
-  gmixpath = seq(0, 1, by = 0.1),
-  sglmixpath = 0.75,
+  gmixpath = 0.5,
+  sglmixpath = seq(0.1, 0.9, 0.1),
   nlambda = 100,
   lambdafactor = 1e-06,
   maxit = 3e+06,
   tol = 1e-06,
   nfolds = 5,
-  verbose = TRUE,
   ncores = 1,
   adaptive = FALSE
 )
@@ -24,9 +23,9 @@ ncagr(
 
 \item{covariates}{\eqn{n \times q} matrix of covariates}
 
-\item{gmixpath}{A path of ncagr mixing parameters. Default is 0.1, 0.2, ..., 0.9.}
+\item{gmixpath}{A path of ncagr mixing parameters.}
 
-\item{sglmixpath}{A path of sparse-group lasso mixing parameter with \eqn{0\leq \alpha \leq 1}. Default is 0.75.}
+\item{sglmixpath}{A path of sparse-group lasso mixing parameter with \eqn{0\leq \alpha \leq 1}.}
 
 \item{nlambda}{The number of lambda values to use for cross-validation - default is 100.}
 
@@ -37,8 +36,6 @@ ncagr(
 \item{tol}{The convergence threshhold for optimization. Default is \eqn{10^{-6}}.}
 
 \item{nfolds}{Number of folds for cross-validation. Default is 5.}
-
-\item{verbose}{If TRUE, prints progress messages. Default is TRUE.}
 
 \item{ncores}{Runs the nodewise regressions in parallel using that many cores. Default is 1.}
 
